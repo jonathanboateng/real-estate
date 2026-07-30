@@ -1,0 +1,17 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/(auth)/register/page": "app/(auth)/register/page.js",
+  "/(auth)/register/owner/page": "app/(auth)/register/owner/page.js",
+  "/(auth)/register/seeker/page": "app/(auth)/register/seeker/page.js",
+  "/api/auth/verify-otp/route": "app/api/auth/verify-otp/route.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
+  "/api/properties/route": "app/api/properties/route.js",
+  "/api/auth/resend-otp/route": "app/api/auth/resend-otp/route.js",
+  "/properties/[id]/page": "app/properties/[id]/page.js",
+  "/verify-otp/page": "app/verify-otp/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/create/page": "app/dashboard/create/page.js",
+  "/page": "app/page.js"
+}

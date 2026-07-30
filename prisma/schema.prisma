@@ -1,40 +1,42 @@
 generator client {
   provider = "prisma-client-js"
 }
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 enum Role {
   OWNER
   SEEKER
 }
-
+enum Gender {
+  MALE
+  FEMALE
+}
 enum PropertyType {
   RENT
   BUY
 }
-
 enum Status {
   AVAILABLE
   SOLD
   RENTED
 }
-
 model User {
   id            String     @id @default(uuid())
   name          String
   email         String     @unique
   password      String
   role          Role       @default(SEEKER)
+  gender        Gender?
   phone         String?
   whatsapp      String?
+  emailVerified Boolean    @default(false)
+  otpCode       String?
+  otpExpiresAt  DateTime?
   properties    Property[]
   createdAt     DateTime   @default(now())
 }
-
 model Property {
   id            String       @id @default(uuid())
   title         String
@@ -48,10 +50,8 @@ model Property {
   images        String[]
   status        Status       @default(AVAILABLE)
   localTags     String[]
-  
   ownerId       String
   owner         User         @relation(fields: [ownerId], references: [id], onDelete: Cascade)
-  
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
 }
